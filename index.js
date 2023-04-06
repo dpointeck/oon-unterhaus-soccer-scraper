@@ -6,15 +6,13 @@ import {
   getMatchesContent2,
   writeMatchesFile,
   getScorer,
-  sleep
+  sleep,
 } from "./lib/scraper";
 import fs from "fs";
+import { URL } from "./lib/scraper";
 
 async function go() {
-  const url =
-    "https://nachrichten.at/sport/fussball/unterhaus/2020_2021/1_klasse/1nw/kopfing";
-
-  const table = await getTableContent(await getHtml(url));
+  const table = await getTableContent(await getHtml(URL));
 
   await writeTableFile(table);
 
@@ -26,7 +24,7 @@ async function go() {
 
   await sleep(2000);
 
-  process.exit()
+  process.exit();
 }
 
 go();
