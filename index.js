@@ -12,13 +12,17 @@ import fs from "fs";
 import { URL } from "./lib/scraper";
 
 async function go() {
-  const table = await getTableContent(await getHtml(URL));
+  // const table = await getTableContent(await getHtml(URL));
 
-  await writeTableFile(table);
+  // await writeTableFile(table);
 
-  const matches = await getMatchesContent2();
+  const matches = await getMatchesContent2(URL);
 
-  await writeMatchesFile(matches);
+  const kopfingMatches = matches.filter((item) => {
+    return ((item.home === "Kopfing") || (item.guest === "Kopfing"));
+  })
+
+  await writeMatchesFile(kopfingMatches);
 
   console.log("scrape complete\n");
 
