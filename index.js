@@ -3,9 +3,7 @@ import {
   getTableContent,
   writeTableFile,
   getMatchesContent,
-  getMatchesContent2,
   writeMatchesFile,
-  getScorer,
   sleep,
 } from "./lib/scraper";
 import fs from "fs";
@@ -21,7 +19,7 @@ async function go() {
   const kopfingMatches = matches.filter((item) => {
     return ((item.home === "Kopfing") || (item.guest === "Kopfing"));
   })
-
+  console.log(kopfingMatches);
   await writeMatchesFile(kopfingMatches);
 
   console.log("scrape complete\n");
