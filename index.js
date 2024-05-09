@@ -19,7 +19,7 @@ async function go() {
   const kopfingMatches = matches.filter((item) => {
     return ((item.home === "Kopfing") || (item.guest === "Kopfing"));
   })
-  console.log(kopfingMatches);
+  
   await writeMatchesFile(kopfingMatches);
 
   console.log("scrape complete\n");
